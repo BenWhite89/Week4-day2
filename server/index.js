@@ -39,6 +39,7 @@ function modifyChirps(procedure, array) {
                         reject(err);
                     } else {
                         connection.release();
+                        console.log(resultsets[0]);
                         fulfill(resultsets[0]);
                     }
                 })
@@ -46,67 +47,6 @@ function modifyChirps(procedure, array) {
         })
     })
 }
-
-// function getAllChirps() {
-//     return new Promise(function(fulfill, reject){
-//         pool.getConnection(function(err, connection) {
-//             if (err) {
-//                 reject(err);
-//             } else {
-//                 connection.query("CALL GetAllChirps();", function(err, resultsets) {
-//                     if (err) {
-//                         connection.release();
-//                         reject(err);
-//                     } else {
-//                         connection.release();
-//                         fulfill(resultsets[0]);
-//                     }
-//                 })
-//             }
-//         })
-//     })
-// }
-
-// function deleteChirp(id) {
-//     return new Promise(function(fulfill,reject) {
-//         pool.getConnection(function(err, connection) {
-//             if (err) {
-//                 reject(err);
-//             } else {
-//                 connection.query(`CALL DeleteChirp(?)`, [id], function(err, resultsets){
-//                     if (err) {
-//                         connection.release();
-//                         reject(err);
-//                     } else {
-//                         connection.release();
-//                         fulfill(resultsets[0]);
-//                     }
-//                 })
-//             }
-//         })
-//     })
-// }
-
-// function createChirp(usr, msg) {
-//     return new Promise(function(fulfill,reject) {
-//         pool.getConnection(function(err, connection) {
-//             if (err) {
-//                 reject(err);
-//             } else {
-//                 connection.query(`CALL CreateChirp(?,?)`, [usr, msg], function(err, resultsets){
-//                     console.log('incallback');
-//                     if (err) {
-//                         connection.release();
-//                         reject(err);
-//                     } else {
-//                         connection.release();
-//                         fulfill(resultsets[0]);
-//                     }
-//                 })
-//             }
-//         })
-//     })
-// }
 
 let homePage = path.join(__dirname, '..', 'client', 'index.html');
 let chirpHistory = path.join(__dirname, 'data.json');
